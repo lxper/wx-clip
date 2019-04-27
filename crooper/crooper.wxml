@@ -1,0 +1,17 @@
+<!-- <canvas canvas-id="myCanvas" style="width:500rpx;height:500rpx"></canvas> -->
+<view class="crooper">
+  <view class="move-area" style="height: {{imageHeigth}}">
+    <view 
+    class="move-item" 
+    style="left:{{left}}px;top:{{top}}px;width:{{clipWidth}}rpx;height:{{clipWidth}}rpx;min-width: 200rpx;min-height:200rpx" 
+    bindtouchstart="contentStartMove" 
+    bindtouchmove="contentMoveing"
+    >
+      <view class="move-item-scale" catchtouchstart="scaleStart" catchtouchmove="scaleMove"></view>
+    </view>
+  </view>
+  <image src="{{image}}" class="imgs" style="height: {{imageHeigth}}" mode="widthFix"></image>
+  <canvas class="clip" style="height: {{imageHeigth}};" canvas-id="clip-canvas"></canvas>
+  <view bindtap="closeClip" class="close-clip">×</view>
+  <button class="make-clip" bindtap="clip" class="make-clip">确定</button>
+</view>
