@@ -30,18 +30,12 @@ Component({
   },
 
   ready: function () {
-    // const ctx = wx.createCanvasContext('clip-canvas', this);
-    // this.setData({
-    //   ctx
-    // })
-    this.chooseImage();
+    this.initImage();
   },
 
   methods: {
     //获取父组件的img，然后做初始化工作
-    chooseImage: function() {
-      // const ctx = this.data.ctx,
-      //       image = this.data.img;
+    initImage: function() {
       const image = this.data.img;
       wx.getImageInfo({
         src: image,
@@ -54,8 +48,6 @@ Component({
             imageHeigth: moveAreaHeight + 'px', 
             moveAreaHeight,
           })
-          // ctx.drawImage(this.data.image, 0, 0, windowWidth, moveAreaHeight);
-          // ctx.draw();
         }
       })
     },
@@ -79,13 +71,9 @@ Component({
         let min = 0, 
             clipWidth = this.data.clipWidth / change;
         if(moveX != 0 && moveY != 0 ){
-            if(moveX > moveY){
-              min = moveY
-            }else{
-              min = moveX
-            }
+            moveX > moveY ? min = moveY : min = moveX
         }      
-        clipWidth += (min / 30);
+        clipWidth += min;
         //限定clip框的最大宽度
         if(clipWidth > moveAreaWidth){
           clipWidth = moveAreaWidth;
@@ -94,6 +82,8 @@ Component({
         this.setData({
           clipWidth
         })
+        scaleDefaultX = current_scaleX;
+        scaleDefaultY = current_scaleY;
       }
     },
     //记录刚触碰clip框时的位置
