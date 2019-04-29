@@ -4,12 +4,12 @@
 ![](http://129.204.88.180/wp-content/uploads/2019/04/caixukun.gif)
 ## 使用
 
-```
+```javascript
 "usingComponentes": {
   "component-crooper": "../../../component/crooper/crooper"
 }
 ```
-```
+```javascript
 <component-crooper 
   wx:if="{{showClip}}"  //是否显示
   img="{{images}}"  //传入图片   
