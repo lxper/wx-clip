@@ -1,7 +1,7 @@
 # wx-clip
 微信小程序的裁剪图片组件
 ## 效果
-![]("http://129.204.88.180/wp-content/uploads/2019/04/caixukun.gif" alt=""")
+![](http://129.204.88.180/wp-content/uploads/2019/04/caixukun.gif)
 ## 使用
 
 ```
